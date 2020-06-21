@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useLayoutEffect, useRef, useState } from 'react'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import cart from '../../images/cart.svg'
 
 import StoreContext from '~/context/StoreContext'
 import { CartCounter, Container, MenuLink, Wrapper, Navbar } from './styles'
+import Dropdown from './dropdown'
 
 const useQuantity = () => {
   const {
@@ -18,16 +19,35 @@ const useQuantity = () => {
 const Navigation = ({ siteTitle }) => {
   const [hasItems, quantity] = useQuantity()
 
+  //Shadow Effect
+  const [shadow, setShadow] = useState(false)
+  const ourRef = useRef(null)
+  useLayoutEffect(() => {
+    const topPos = element => element.getBoundingClientRect().top
+    const headerPos = topPos(ourRef.current)
+
+    const onScroll = () => {
+      const scrollPosition = window.scrollY
+      if (scrollPosition > headerPos + 1) {
+        setShadow(true)
+      } else setShadow(false)
+    }
+    window.addEventListener('scroll', onScroll)
+  }, [])
+
+  //Drop down menu logic
+
   return (
-    <Wrapper>
+    <Wrapper ref={ourRef} animate={shadow}>
       <Container>
         <MenuLink className="main-title" to="/">
           {siteTitle}
         </MenuLink>
         <Navbar>
-          <MenuLink>Women's</MenuLink>
+          <Dropdown title="Women's" />
           <MenuLink>Men's</MenuLink>
           <MenuLink>Children's</MenuLink>
+          <MenuLink>Accessories</MenuLink>
           <MenuLink to="/cart">
             {hasItems && <CartCounter>{quantity}</CartCounter>}
             <img src={cart} alt="shopping cart" className="cart" />

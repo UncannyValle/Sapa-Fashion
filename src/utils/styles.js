@@ -10,8 +10,13 @@ export const breakpoints = {
 }
 
 export const GlobalStyle = createGlobalStyle`
+    *, *:before, *:after {
+    box-sizing: border-box;
+  }
       body {
         margin: 0;
+        background-color: white;
+
       }
       html {
         font-family: "Roboto";
@@ -31,16 +36,17 @@ export const Img = styled(Image)`
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
+  padding: 2rem;
   margin-bottom: 1.45rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
 `
 
 export const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1066px;
+  /* max-width: 1066px; */
 `
 
 export const TwoColumnGrid = styled.div`
@@ -65,6 +71,8 @@ export const GridRight = styled.div`
 export const MainContent = styled.main`
   margin-top: 80px;
   margin-bottom: 40px;
+  width: 100%;
+
 
   @media (max-width: ${breakpoints.l}px) {
     margin-top: 40px;
