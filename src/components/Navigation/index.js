@@ -36,18 +36,41 @@ const Navigation = ({ siteTitle }) => {
   }, [])
 
   //Drop down menu logic
-
+  const women = {
+    title: "Women",
+    sections: ['Tops', 'Bottoms', 'Dresses', 'Shoes'],
+    link: '/women-section/women',
+  }
+  const men = {
+    title: "Men",
+    sections: ['Shirts', 'Pants', 'Suits', 'Shoes'],
+  }
+  const children = {
+    title: "Children",
+    sections: ['Shirts', 'Pants', 'Shoes'],
+  }
+  const acc = {
+    title: 'Accessories',
+    sections: ['Bags', 'Sunglasses', 'Hats', 'Purses', 'Jewelry'],
+  }
   return (
     <Wrapper ref={ourRef} animate={shadow}>
       <Container>
         <MenuLink className="main-title" to="/">
           {siteTitle}
+          <h3>Styles for every occasion</h3>
         </MenuLink>
         <Navbar>
-          <Dropdown title="Women's" />
-          <MenuLink>Men's</MenuLink>
-          <MenuLink>Children's</MenuLink>
-          <MenuLink>Accessories</MenuLink>
+          <Dropdown
+            title={women.title}
+            sections={women.sections}
+            link={women.link}
+            // tag="Women"
+          />
+          <Dropdown title={men.title} sections={men.sections} />
+          <Dropdown title={children.title} sections={children.sections} />
+          <Dropdown title={acc.title} sections={acc.sections} />
+
           <MenuLink to="/cart">
             {hasItems && <CartCounter>{quantity}</CartCounter>}
             <img src={cart} alt="shopping cart" className="cart" />

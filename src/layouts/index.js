@@ -13,7 +13,9 @@ import Navigation from '~/components/Navigation'
 const Wrapper = styled(MainContent)`
   /* max-width: 1066px; */
 `
+const Footer = styled.footer`
 
+`
 const Layout = ({ children }) => {
   return (
     <ContextProvider>
@@ -34,11 +36,11 @@ const Layout = ({ children }) => {
 
             <Wrapper>
               {children}
-              <footer>
+              <Footer>
                 © {new Date().getFullYear()}, Built with
                 {` `}
                 <a href="https://www.gatsbyjs.org">Gatsby</a>
-              </footer>
+              </Footer>
             </Wrapper>
           </>
         )}

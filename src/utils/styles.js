@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
       }
       h1 {
         font-family: "Niconne";
+        margin: 1rem 0;
       }
        h2,h3,h4,h5, a {
         font-family: "Cormorant";
@@ -70,9 +71,7 @@ export const GridRight = styled.div`
 
 export const MainContent = styled.main`
   margin-top: 80px;
-  margin-bottom: 40px;
   width: 100%;
-
 
   @media (max-width: ${breakpoints.l}px) {
     margin-top: 40px;

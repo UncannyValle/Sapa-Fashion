@@ -5,7 +5,6 @@ import { breakpoints } from '../../utils/styles'
 
 export const Wrapper = styled.div`
   background: white;
-  margin-bottom: 1.45rem;
   position: fixed;
   top: 0;
   width: 100%;
@@ -21,20 +20,25 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 1.5rem;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 `
 
 export const MenuLink = styled(Link)`
   color: black;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   &.main-title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     font-family: 'Niconne';
     padding: 0;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin: 0.25rem 0;
+    text-align: center;
   }
   .cart {
     height: 2rem;
@@ -47,7 +51,6 @@ export const MenuLink = styled(Link)`
 `
 export const Navbar = styled.nav`
   display: flex;
-  width: 50%;
   justify-content: space-between;
 `
 export const CartCounter = styled.span`
