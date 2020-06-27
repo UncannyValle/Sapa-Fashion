@@ -39,7 +39,7 @@ const Navigation = ({ siteTitle }) => {
   const women = {
     title: "Women",
     sections: ['Tops', 'Bottoms', 'Dresses', 'Shoes'],
-    link: '/women-section/women',
+   
   }
   const men = {
     title: "Men",

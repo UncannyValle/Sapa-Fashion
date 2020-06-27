@@ -10,7 +10,6 @@ const List = styled.ul`
   flex-flow: column nowrap;
   background-color: black;
   padding: 0;
- 
 `
 const Links = styled(Link)`
   padding: 1rem;
@@ -35,13 +34,14 @@ const Links = styled(Link)`
   }
 `
 
-const Dropdown = ({ title, sections, link }) => {
+const Dropdown = ({ title, sections }) => {
   const [open, setOpen] = useState(false)
 
   return (
     <div>
       <Links
-        to={link}
+        to={`/allproducts/${title}`.toLowerCase()}
+        state={{ title }}
         className="top-name"
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -51,7 +51,8 @@ const Dropdown = ({ title, sections, link }) => {
       <List show={open}>
         {sections.map(section => (
           <Links
-            to={`/women-section/${section.toLowerCase()}`}
+            to={`/allproducts/${section}`.toLowerCase()}
+            state={{ section }}
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >

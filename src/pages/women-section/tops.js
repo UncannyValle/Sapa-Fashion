@@ -19,26 +19,25 @@ const Wrapper = styled.main`
   }
 `
 
-const WomenSection = () => {
+const WomenSection = ({ location }) => {
   const {
     store: { checkout },
   } = useContext(StoreContext)
 
+  const section = location.state.section
   //Queries just for the tag: Women
 
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
-        allShopifyProduct(
-          filter: { tags: { eq: "Tops" } }
-          sort: { order: ASC, fields: title }
-        ) {
+        allShopifyProduct(sort: { order: ASC, fields: title }) {
           edges {
             node {
               id
               title
               handle
               createdAt
+              tags
               images {
                 id
                 originalSrc
@@ -78,25 +77,30 @@ const WomenSection = () => {
                 id,
                 handle,
                 title,
+                tags,
                 images: [firstImage],
                 variants: [firstVariant],
               },
-            }) => (
-              <Product key={id}>
-                <Link to={`/product/${handle}/`}>
-                  {firstImage && firstImage.localFile && (
-                    <Img
-                      fluid={firstImage.localFile.childImageSharp.fluid}
-                      alt={handle}
-                      objectFit="cover"
-                      objectPosition="50% 50%"
-                    />
-                  )}
-                </Link>
-                <Title>{title}</Title>
-                <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
-              </Product>
-            )
+            }) => {
+              if (tags.includes(section)) {
+                return (
+                  <Product key={id}>
+                    <Link to={`/product/${handle}/`}>
+                      {firstImage && firstImage.localFile && (
+                        <Img
+                          fluid={firstImage.localFile.childImageSharp.fluid}
+                          alt={handle}
+                          objectFit="cover"
+                          objectPosition="50% 50%"
+                        />
+                      )}
+                    </Link>
+                    <Title>{title}</Title>
+                    <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
+                  </Product>
+                )
+              }
+            }
           )
         ) : (
           <p>No Products found!</p>

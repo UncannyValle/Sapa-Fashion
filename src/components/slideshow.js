@@ -108,7 +108,7 @@ const Slideshow = props => {
                   <Image
                     fluid={firstImage.localFile.childImageSharp.fluid}
                     alt={handle}
-                    imgStyle={{ objectFit: 'contain' }}
+                    imgStyle={{ objectFit: 'cover' }}
                   />
                 )}
               </Link>
