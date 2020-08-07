@@ -19,14 +19,13 @@ const Wrapper = styled.main`
   }
 `
 
-const WomenSection = ({ data }) => {
+const WomenSection = ({ data, location }) => {
   const allShopifyProduct = data.allShopifyProduct
   const {
     store: { checkout },
   } = useContext(StoreContext)
 
   //   const section = location.state.section
-  //Queries just for the tag: Women
 
   const getPrice = price =>
     Intl.NumberFormat(undefined, {
@@ -37,8 +36,10 @@ const WomenSection = ({ data }) => {
 
   return (
     <Wrapper>
-      <h1>All Women's </h1>
-      <h2>Come check out our newest styles!</h2>
+      <h1>All {location.state.tagFromLink} </h1>
+      {location.state.tagFromLink === 'Women' ? (
+        <h2>Come check out our newest styles!</h2>
+      ) : null}
       <Grid>
         {allShopifyProduct.edges ? (
           allShopifyProduct.edges.map(

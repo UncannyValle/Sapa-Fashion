@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
   const tagTemplate = path.resolve('src/templates/subproduct.js')
   return graphql(`
     query {
-      allShopifyProduct(sort: {order: DESC, fields: handle}) {
+      allShopifyProduct(sort: { order: DESC, fields: handle }) {
         distinct(field: tags)
         edges {
           node {
@@ -41,7 +41,6 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-    
   `).then(result => {
     if (result.errors) {
       Promise.reject(result.errors)
@@ -60,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
     // Create tag pages
-    result.data.allShopifyProduct.distinct.forEach((currentTag) => {
+    result.data.allShopifyProduct.distinct.forEach(currentTag => {
       createPage({
         path: `/allproducts/${currentTag}`.toLowerCase(),
         component: tagTemplate,

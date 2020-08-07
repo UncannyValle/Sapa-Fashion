@@ -41,7 +41,7 @@ const Dropdown = ({ title, sections }) => {
     <div>
       <Links
         to={`/allproducts/${title}`.toLowerCase()}
-        state={{ title }}
+        state={{ tagFromLink: title }}
         className="top-name"
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -52,7 +52,7 @@ const Dropdown = ({ title, sections }) => {
         {sections.map(section => (
           <Links
             to={`/allproducts/${section}`.toLowerCase()}
-            state={{ section }}
+            state={{ tagFromLink: section }}
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
