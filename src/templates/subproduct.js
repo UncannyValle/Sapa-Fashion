@@ -11,14 +11,15 @@ import {
 } from '../components/ProductGrid/styles'
 import { Img } from '~/utils/styles'
 
-const Wrapper = styled.main`
-  margin-top: 7rem;
-  text-align: center;
-  h1 {
-    font-size: 5rem;
-  }
-`
 
+const ProductGrid = styled(Grid)`
+`
+const TheTitle = styled.h1`
+  font-size: 3.5rem;
+`
+const Subtext = styled.h2`
+  font-weight: 800;
+`
 const WomenSection = ({ data, location }) => {
   const allShopifyProduct = data.allShopifyProduct
   const {
@@ -35,12 +36,12 @@ const WomenSection = ({ data, location }) => {
     }).format(parseFloat(price ? price : 0))
 
   return (
-    <Wrapper>
-      <h1>All {location.state.tagFromLink} </h1>
+    <>
+      <TheTitle>All {location.state.tagFromLink} </TheTitle>
       {location.state.tagFromLink === 'Women' ? (
-        <h2>Come check out our newest styles!</h2>
+        <Subtext>Come check out our newest styles!</Subtext>
       ) : null}
-      <Grid>
+      <ProductGrid>
         {allShopifyProduct.edges ? (
           allShopifyProduct.edges.map(
             ({
@@ -75,8 +76,8 @@ const WomenSection = ({ data, location }) => {
         ) : (
           <p>No Products found!</p>
         )}
-      </Grid>
-    </Wrapper>
+      </ProductGrid>
+    </>
   )
 }
 

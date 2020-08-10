@@ -45,8 +45,7 @@ const IndexPage = () => (
           adipisci in. Assumenda ex distinctio amet porro?
         </p>
       </About>
-      <ProductGrid />
-      <Link to="/page-2/">Go to page 2</Link>
+     
     </MainContent>
     
   </>

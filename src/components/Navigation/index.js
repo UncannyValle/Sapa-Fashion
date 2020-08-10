@@ -38,16 +38,16 @@ const Navigation = ({ siteTitle }) => {
   //Drop down menu logic
   const women = {
     title: "Women",
-    sections: ['Tops', 'Bottoms', 'Dresses', 'Shoes'],
+    sections: ['Tops', 'Bottoms', 'Dresses', 'Women-Shoes'],
    
   }
   const men = {
     title: "Men",
-    sections: ['Shirts', 'Pants', 'Suits', 'Shoes'],
+    sections: ['Shirts', 'Pants', 'Suits', 'Men-Shoes'],
   }
   const children = {
     title: "Children",
-    sections: ['Shirts', 'Pants', 'Shoes'],
+    sections: ['Shirts', 'Pants', 'Children-Shoes'],
   }
   const acc = {
     title: 'Accessories',

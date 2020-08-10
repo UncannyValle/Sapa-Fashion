@@ -33,12 +33,10 @@ export const GlobalStyle = createGlobalStyle`
     `
 
 export const Img = styled(Image)`
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  width: 20rem;
+  height: 25rem;
+  margin: 0 auto 1.5rem;
   padding: 2rem;
-  margin-bottom: 1.45rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: 0.2s ease-in-out;
   &:hover {
@@ -70,8 +68,9 @@ export const GridRight = styled.div`
 `
 
 export const MainContent = styled.main`
-  margin-top: 80px;
+  margin-top: 10rem;
   width: 100%;
+  text-align: center;
 
   @media (max-width: ${breakpoints.l}px) {
     margin-top: 40px;

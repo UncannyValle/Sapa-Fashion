@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
+import {Footer} from '../components/footer'
 import ContextProvider from '~/provider/ContextProvider'
 
 import { GlobalStyle, MainContent } from '~/utils/styles'
@@ -13,9 +13,7 @@ import Navigation from '~/components/Navigation'
 const Wrapper = styled(MainContent)`
   /* max-width: 1066px; */
 `
-const Footer = styled.footer`
 
-`
 const Layout = ({ children }) => {
   return (
     <ContextProvider>
@@ -37,9 +35,9 @@ const Layout = ({ children }) => {
             <Wrapper>
               {children}
               <Footer>
-                © {new Date().getFullYear()}, Built with
+                © {new Date().getFullYear()}, Built by
                 {` `}
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
+                <a href="https://www.theuncannyvalle.com">Julian Valle</a>
               </Footer>
             </Wrapper>
           </>

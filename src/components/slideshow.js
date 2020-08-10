@@ -12,10 +12,9 @@ const Wrapper = styled.div`
     position: relative;
     top: 1rem;
     font-size: 5rem;
-   
+
     display: inline-block;
     color: black;
-   
   }
 `
 const Carousel = styled(Slider)`
@@ -32,8 +31,10 @@ const Carousel = styled(Slider)`
   }
 
   .slick-slide {
-    padding: 0 8px;
     box-sizing: border-box;
+    margin: 0 auto;
+    text-align:center;
+    padding:0 1rem;
   }
 
   .slick-next {
@@ -46,13 +47,15 @@ const Carousel = styled(Slider)`
     bottom: 0;
     left: 0;
   }
+
 `
 const Image = styled(Img)`
   border-radius: 50%;
+  min-width: 100%;
+  margin:0 auto;
 `
-const Slideshow = props => {
-  // const { store: {checkout} } = useContext(StoreContext)
 
+const Slideshow = () => {
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
@@ -82,12 +85,12 @@ const Slideshow = props => {
   )
   const settings = {
     dots: true,
-    speed: 300,
+    speed: 500,
     slidesToShow: 3,
-    adaptiveHeight: true,
+    // adaptiveHeight: true,
     autoplay: true,
-    autoplaySpeed: 5000,
-    pauseOnHover: false,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
   }
   return (
     <Wrapper>
@@ -108,7 +111,6 @@ const Slideshow = props => {
                   <Image
                     fluid={firstImage.localFile.childImageSharp.fluid}
                     alt={handle}
-                    imgStyle={{ objectFit: 'cover' }}
                   />
                 )}
               </Link>
