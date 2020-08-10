@@ -45,13 +45,10 @@ const Navigation = ({ siteTitle }) => {
     title: "Men",
     sections: ['Shirts', 'Pants', 'Suits', 'Men-Shoes'],
   }
-  const children = {
-    title: "Children",
-    sections: ['Shirts', 'Pants', 'Children-Shoes'],
-  }
+
   const acc = {
     title: 'Accessories',
-    sections: ['Bags', 'Sunglasses', 'Hats', 'Purses', 'Jewelry'],
+    sections: ['Bags', 'Sunglasses', 'Hats'],
   }
   return (
     <Wrapper ref={ourRef} animate={shadow}>
@@ -64,11 +61,9 @@ const Navigation = ({ siteTitle }) => {
           <Dropdown
             title={women.title}
             sections={women.sections}
-            link={women.link}
-            // tag="Women"
+            // link={women.link}
           />
           <Dropdown title={men.title} sections={men.sections} />
-          <Dropdown title={children.title} sections={children.sections} />
           <Dropdown title={acc.title} sections={acc.sections} />
 
           <MenuLink to="/cart">
