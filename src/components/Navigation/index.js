@@ -57,11 +57,12 @@ const Navigation = ({ siteTitle }) => {
           {siteTitle}
           <h3>Styles for every occasion</h3>
         </MenuLink>
+
+        {/* The main navigation starts here with the dropdown */}
         <Navbar>
           <Dropdown
             title={women.title}
             sections={women.sections}
-            // link={women.link}
           />
           <Dropdown title={men.title} sections={men.sections} />
           <Dropdown title={acc.title} sections={acc.sections} />
