@@ -52,7 +52,6 @@ const Dropdown = ({ title, sections }) => {
         {sections.map(section => (
           <Links
             to={`/allproducts/${section}`.toLowerCase()}
-            state={{ tagFromLink: section }}
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >

@@ -52,7 +52,6 @@ const Navigation = ({ siteTitle }) => {
   }
   return (
     <Wrapper ref={ourRef} animate={shadow}>
-      <Container>
         <MenuLink className="main-title" to="/">
           {siteTitle}
           <h3>Styles for every occasion</h3>
@@ -72,7 +71,6 @@ const Navigation = ({ siteTitle }) => {
             <img src={cart} alt="shopping cart" className="cart" />
           </MenuLink>
         </Navbar>
-      </Container>
     </Wrapper>
   )
 }

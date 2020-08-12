@@ -16,14 +16,6 @@ export const Wrapper = styled.div`
   transition: all 200ms ease-in;
 `
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1.5rem;
-  margin: 0 auto;
-  width: 90%;
-`
 
 export const MenuLink = styled(Link)`
   color: black;
@@ -46,7 +38,7 @@ export const MenuLink = styled(Link)`
     vertical-align: bottom;
   }
   @media (max-width: ${breakpoints.s}px) {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 `
 export const Navbar = styled.nav`

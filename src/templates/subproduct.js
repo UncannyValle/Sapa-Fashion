@@ -37,10 +37,7 @@ const WomenSection = ({ data, location }) => {
 
   return (
     <>
-      <TheTitle>All {location.state.tagFromLink} </TheTitle>
-      {/* {location.state.tagFromLink === 'Women' ? (
-        <Subtext>Come check out our newest styles!</Subtext>
-      ) : null} */}
+      <TheTitle>{location.state ? location.state.tagFromLink : null} </TheTitle>
       <ProductGrid>
         {allShopifyProduct.edges ? (
           allShopifyProduct.edges.map(
