@@ -2,7 +2,6 @@ import React from 'react'
 // import { Link } from 'gatsby'
 import styled from 'styled-components'
 import SEO from '~/components/seo'
-// import ProductGrid from '~/components/ProductGrid'
 import Slideshow from '../components/slideshow'
 import { Splash } from '../components/pieces/splash'
 

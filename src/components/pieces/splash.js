@@ -21,16 +21,26 @@ const SplashImage = styled(Img)`
 const OverText = styled.h2`
   text-align: left;
   font-size: 5rem;
-  width: 56rem;
+  width: 100vw;
   color: white;
   position: absolute;
   top: 40vh;
   left: 10vw;
+  @media (max-width: 768px) {
+    left: 0;
+    text-align: center;
+  }
+  @media (max-width: 576px) {
+    font-size: 2.5rem;
+  }
 `
 const Links = styled(Link)`
   text-decoration: underline;
   color: white;
   font-size: 3rem;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `
 export const Splash = () => {
   const images = useStaticQuery(
@@ -46,8 +56,6 @@ export const Splash = () => {
       }
     `
   )
-
-
 
   return (
     <Wrapper>
