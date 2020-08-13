@@ -17,9 +17,7 @@ const ProductGrid = styled(Grid)`
 const TheTitle = styled.h1`
   font-size: 3.5rem;
 `
-const Subtext = styled.h2`
-  font-weight: 800;
-`
+
 const WomenSection = ({ data, location }) => {
   const allShopifyProduct = data.allShopifyProduct
   const {
