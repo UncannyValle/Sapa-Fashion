@@ -27,7 +27,8 @@ const Wrapper = styled.header`
   padding: 1rem 2rem;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
+
   box-shadow: ${({ animate }) =>
     animate
       ? '1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)'

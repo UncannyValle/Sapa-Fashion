@@ -14,12 +14,15 @@ const Navbar = styled.nav`
 `
 const Wrapper = styled.div`
   margin: 0;
-  display: ${({ show }) => (show ? 'flex' : 'none')};
+  /* display: ${({ show }) => (show ? 'flex' : 'none')}; */
+  display:flex;
   position: absolute;
-  top: 5rem;
+  top: ${({ show }) => (show ? '5rem' : '-30rem')};
   left: 0;
   width: 100vw;
   justify-content: space-between;
+    transition: all 400ms ease-in-out;
+
 `
 const List = styled.ul`
   display: flex;
@@ -30,6 +33,7 @@ const List = styled.ul`
   text-align: center;
   margin: 0;
   height: 0;
+
   .subsection {
     background-color: black;
   }
@@ -79,7 +83,7 @@ const Burger = styled.div`
     margin-bottom: 5px;
     position: relative;
 
-    background: blue;
+    background: black;
     border-radius: 3px;
 
     z-index: 1;
@@ -88,6 +92,37 @@ const Burger = styled.div`
 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
       background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+  span:first-child {
+    transform-origin: 0% 0%;
+  }
+  span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  /* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+  input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
+
+  /*
+ * But let's hide the middle one.
+ */
+  input:checked ~ span:nth-last-child(2) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  /*
+ * Ohyeah and the last one should go the other direction
+ */
+  input:checked ~ span:nth-last-child(1) {
+    transform: rotate(-45deg) translate(0, -5px);
   }
 `
 const NavSmall = () => {
@@ -116,7 +151,7 @@ const NavSmall = () => {
   return (
     <Navbar>
       <Burger>
-        <input type="checkbox" onClick={changer} />
+        <input type="checkbox" onClick={changer} checked={open} />
         <span></span>
         <span></span>
         <span></span>
