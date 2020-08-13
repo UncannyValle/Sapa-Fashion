@@ -5,7 +5,6 @@ import cart from '../../images/cart.svg'
 import NavBig from './navBig'
 import StoreContext from '~/context/StoreContext'
 import { CartCounter, MenuLink } from './styles'
-import Dropdown from './dropdown'
 import styled from 'styled-components'
 import NavSmall from './navSmall'
 
@@ -43,7 +42,7 @@ const MainTitle = styled(MenuLink)`
   font-weight: bold;
   font-family: 'Niconne';
   padding: 0 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 2rem;
     text-align: center;
     h3 {
@@ -60,7 +59,7 @@ const Cart = styled(MenuLink)`
     height: 2rem;
     width: auto;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-right:3rem;
   }
 `

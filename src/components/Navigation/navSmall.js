@@ -7,20 +7,19 @@ const Navbar = styled.nav`
   justify-content: space-evenly;
   align-items: center;
   display: none;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: flex;
     transition: all 0.2s ease-in-out;
   }
 `
 const Wrapper = styled.div`
   margin: 0;
-  /* display: ${({ show }) => (show ? 'flex' : 'none')}; */
   display:flex;
   position: absolute;
-  top: ${({ show }) => (show ? '5rem' : '-30rem')};
-  left: 0;
+  top:5rem;
+  right: ${({ show }) => (show ? '0' : '-30rem')};
   width: 100vw;
-  justify-content: space-between;
+  justify-content: flex-end;
     transition: all 400ms ease-in-out;
 
 `
@@ -52,6 +51,9 @@ const Links = styled(Link)`
     border: none;
     color: black;
     background: white;
+  }
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
   }
 `
 const Burger = styled.div`

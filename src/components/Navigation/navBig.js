@@ -6,7 +6,7 @@ const Navbar = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `
