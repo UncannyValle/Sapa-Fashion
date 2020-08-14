@@ -30,6 +30,7 @@ const Cart = () => {
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       transition: all 200ms ease-in-out;
       width: 200px;
+      color: white;
       &:hover {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
           0 6px 6px rgba(0, 0, 0, 0.23);
@@ -42,12 +43,25 @@ const Cart = () => {
     justify-content: space-evenly;
     align-items: center;
     margin: 5rem;
+    h2 {
+      font-size: 2rem;
+      text-decoration: underline;
+    }
+    p {
+      font-weight: 800;
+      border: solid 3px black;
+      border-radius: 25px;
+      padding: .5rem;
+    }
+    @media (max-width: 576px) {
+      flex-wrap: wrap;
+    }
   `
   return (
     <Wrapper>
       {lineItems}
       <SubTotal>
-        <h2>Subtotal</h2>
+        <h2>Subtotal: </h2>
         <p>$ {checkout.subtotalPrice}</p>
         <br />
 

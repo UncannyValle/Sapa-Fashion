@@ -75,6 +75,6 @@ export const MainContent = styled.main`
   position:relative;
 
   @media (max-width: ${breakpoints.l}px) {
-    top: 5rem;
+    top: 6rem;
   }
 `
