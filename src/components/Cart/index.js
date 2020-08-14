@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import StoreContext from '~/context/StoreContext'
 import LineItem from './LineItem'
+import styled from 'styled-components'
 
 const Cart = () => {
   const {
@@ -16,25 +17,52 @@ const Cart = () => {
     <LineItem key={item.id.toString()} item={item} />
   ))
 
+  //Styles
+  const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    button {
+      background: #25ccde;
+      border-radius: 50px;
+      border: none;
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 200ms ease-in-out;
+      width: 200px;
+      &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+        cursor: pointer;
+      }
+    }
+  `
+  const SubTotal = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5rem;
+  `
   return (
-    <div>
+    <Wrapper>
       {lineItems}
-      <h2>Subtotal</h2>
-      <p>$ {checkout.subtotalPrice}</p>
-      <br />
-      <h2>Taxes</h2>
-      <p>$ {checkout.totalTax}</p>
-      <br />
+      <SubTotal>
+        <h2>Subtotal</h2>
+        <p>$ {checkout.subtotalPrice}</p>
+        <br />
+
+        {/* <br />
       <h2>Total</h2>
       <p>$ {checkout.totalPrice}</p>
-      <br />
-      <button
-        onClick={handleCheckout}
-        disabled={checkout.lineItems.length === 0}
-      >
-        Check out
-      </button>
-    </div>
+      <br /> */}
+        <button
+          onClick={handleCheckout}
+          disabled={checkout.lineItems.length === 0}
+        >
+          Check out
+        </button>
+      </SubTotal>
+    </Wrapper>
   )
 }
 

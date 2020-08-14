@@ -45,7 +45,8 @@ export const Img = styled(Image)`
 `
 
 export const Container = styled.div`
-  /* max-width: 1066px; */
+  
+  max-width: 1066px;
 `
 
 export const TwoColumnGrid = styled.div`
@@ -68,7 +69,7 @@ export const GridRight = styled.div`
 `
 
 export const MainContent = styled.main`
-  top: 7rem;
+  top: 8rem;
   /* width: 100%; */
   text-align: center;
   position:relative;

@@ -32,16 +32,20 @@ const LineItem = props => {
   return (
     <Wrapper>
       {console.log(item)}
-      <Link to={`/product/${item.variant.product.handle}/`}>
+      <Link
+        to={`/product/${item.variant.product.handle}/`}
+        className="image-cart"
+      >
         {variantImage}
       </Link>
       <p>
         {item.title}
         {`  `}
-        {item.variant.title === !'Default Title' ? item.variant.title : ''}
+        {/* {item.variant.title === !'Default Title' ? item.variant.title : ''} */}
       </p>
-      {selectedOptions}
-      {item.quantity}
+      {/* {selectedOptions} */}
+      <p>Quantity: {item.quantity}</p>
+
       <button onClick={handleRemove}>Remove</button>
     </Wrapper>
   )
