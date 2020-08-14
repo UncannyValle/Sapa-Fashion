@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     color: black;
   }
   @media (max-width: 1024px) {
-    display: none;
+    display: none; 
   }
 `
 const Carousel = styled(Slider)`
