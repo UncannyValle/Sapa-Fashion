@@ -87,7 +87,6 @@ const Slideshow = () => {
     dots: true,
     speed: 500,
     slidesToShow: 3,
-    // adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,

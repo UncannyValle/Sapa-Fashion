@@ -14,13 +14,12 @@ const List = styled.ul`
   background-color: black;
   padding: 0;
   width: 10rem;
-  text-align:center;
+  text-align: center;
   margin: 0;
-  height:0;
+  height: 0;
   top: 6rem;
   .subsection {
     background-color: black;
-    
   }
 `
 const Links = styled(Link)`
@@ -32,7 +31,7 @@ const Links = styled(Link)`
   border: 1px solid white;
   width: 100%;
   margin: 0 auto;
- 
+
   &.top-name {
     border: none;
     color: black;
@@ -49,9 +48,6 @@ const Links = styled(Link)`
 
 const Dropdown = ({ title, sections }) => {
   const [open, setOpen] = useState(false)
-  
-
-  
 
   return (
     <Wrapper>
@@ -64,12 +60,13 @@ const Dropdown = ({ title, sections }) => {
       >
         {title}
       </Links>
-      
+
       <List show={open}>
         {sections.map(section => (
           <Links
             className="subsection"
             to={`/allproducts/${section}`.toLowerCase()}
+            state={{ tagFromLink: section }}
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
@@ -78,7 +75,6 @@ const Dropdown = ({ title, sections }) => {
         ))}
         ;
       </List>
-      
     </Wrapper>
   )
 }

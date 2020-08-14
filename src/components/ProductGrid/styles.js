@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { breakpoints } from '../../utils/styles'
 
 export const Grid = styled.div`
-  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-
+  @media (max-width: ${breakpoints.l}px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (max-width: ${breakpoints.s}px) {
     grid-template-columns: repeat(1, 1fr);
   }

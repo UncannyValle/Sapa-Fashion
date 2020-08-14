@@ -27,7 +27,6 @@ const Wrapper = styled.header`
   top: 0;
   width: 100%;
   z-index: 1000;
-
   box-shadow: ${({ animate }) =>
     animate
       ? '1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)'
@@ -52,7 +51,6 @@ const MainTitle = styled(MenuLink)`
 `
 const RightNav = styled.div`
   display: flex;
-  
 `
 const Cart = styled(MenuLink)`
   img {
@@ -60,12 +58,13 @@ const Cart = styled(MenuLink)`
     width: auto;
   }
   @media (max-width: 1024px) {
-    margin-right:3rem;
+    margin-right: 3rem;
   }
 `
 
 const Navigation = ({ siteTitle }) => {
   const [hasItems, quantity] = useQuantity()
+  const [open, setOpen] = useState(false)
 
   //Shadow Effect
   const [shadow, setShadow] = useState(false)
@@ -85,7 +84,7 @@ const Navigation = ({ siteTitle }) => {
 
   return (
     <Wrapper ref={ourRef} animate={shadow}>
-      <MainTitle to="/">
+      <MainTitle to="/" onClick={() => (open ? setOpen(false) : setOpen(true))}>
         {siteTitle}
         <h3>Styles for every occasion</h3>
       </MainTitle>

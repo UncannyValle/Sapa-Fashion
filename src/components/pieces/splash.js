@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const Wrapper = styled.div`
-  width: 100vw;
+  width: 100%;
   position: fixed;
   height: 100vh;
   z-index: -10;
@@ -25,7 +25,7 @@ const OverText = styled.h2`
   color: white;
   position: absolute;
   top: 40vh;
-  left: 10vw;
+  left: 15vw;
   @media (max-width: 768px) {
     left: 0;
     text-align: center;

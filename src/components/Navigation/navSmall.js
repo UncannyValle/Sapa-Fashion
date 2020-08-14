@@ -14,14 +14,13 @@ const Navbar = styled.nav`
 `
 const Wrapper = styled.div`
   margin: 0;
-  display:flex;
+  display: flex;
   position: absolute;
-  top:5rem;
+  top: 5rem;
   right: ${({ show }) => (show ? '0' : '-30rem')};
   width: 100vw;
   justify-content: flex-end;
-    transition: all 400ms ease-in-out;
-
+  transition: all 400ms ease-in-out;
 `
 const List = styled.ul`
   display: flex;
@@ -173,6 +172,7 @@ const NavSmall = () => {
               className="subsection"
               to={`/allproducts/${section}`.toLowerCase()}
               onClick={changer}
+              state={{ tagFromLink: section }}
             >
               {section}
             </Links>
@@ -194,6 +194,7 @@ const NavSmall = () => {
               className="subsection"
               to={`/allproducts/${section}`.toLowerCase()}
               onClick={changer}
+              state={{ tagFromLink: section }}
             >
               {section}
             </Links>
@@ -215,6 +216,7 @@ const NavSmall = () => {
               className="subsection"
               to={`/allproducts/${section}`.toLowerCase()}
               onClick={changer}
+              state={{ tagFromLink: section }}
             >
               {section}
             </Links>

@@ -68,12 +68,13 @@ export const GridRight = styled.div`
 `
 
 export const MainContent = styled.main`
-  margin-top: 10rem;
-  width: 100%;
+  top: 7rem;
+  /* width: 100%; */
   text-align: center;
+  min-height: 100vh;
+  position:relative;
 
   @media (max-width: ${breakpoints.l}px) {
-    margin-top: 40px;
-    margin-bottom: 20px;
+    top: 5rem;
   }
 `

@@ -4,14 +4,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import {Footer} from '../components/footer'
+import { Footer } from '../components/footer'
 import ContextProvider from '~/provider/ContextProvider'
 
 import { GlobalStyle, MainContent } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
 
 const Wrapper = styled(MainContent)`
-  /* max-width: 1066px; */
+  max-width: 1066px;
+  margin: 0 auto;
 `
 
 const Layout = ({ children }) => {
@@ -33,12 +34,8 @@ const Layout = ({ children }) => {
             <Navigation siteTitle={data.site.siteMetadata.title} />
 
             <Wrapper>
-              {children}
-              <Footer>
-                © {new Date().getFullYear()}, Built by
-                {` `}
-                <a href="https://www.theuncannyvalle.com">Julian Valle</a>
-              </Footer>
+              {children} 
+              <Footer />
             </Wrapper>
           </>
         )}

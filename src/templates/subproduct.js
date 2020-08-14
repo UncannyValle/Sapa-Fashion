@@ -12,6 +12,7 @@ import {
 import { Img } from '~/utils/styles'
 
 
+
 const ProductGrid = styled(Grid)`
 `
 const TheTitle = styled.h1`
