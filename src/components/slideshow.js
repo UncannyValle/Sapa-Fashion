@@ -27,20 +27,19 @@ const Carousel = styled(Slider)`
 
   .links {
     transition: ease-in-out 0.2s all;
-   
+    text-align: center;
   }
 
   .slick-list {
     margin: 0 25px;
   }
-  .slick-arrow{
+  .slick-arrow {
     background-color: black;
-    border-radius:50%;
+    border-radius: 50%;
     width: 50px;
     height: 50px;
   }
-  .slick-slider{
-
+  .slick-slider {
   }
   .slick-slide {
     box-sizing: border-box;
@@ -61,7 +60,10 @@ const Carousel = styled(Slider)`
 `
 const Image = styled(Img)`
   border-radius: 50%;
-  
+  @media (max-width: 1024px) {
+    width: 200px;
+    height: 200px;
+  }
 `
 
 const Slideshow = () => {
@@ -70,7 +72,7 @@ const Slideshow = () => {
       query {
         allShopifyProduct(
           sort: { fields: [createdAt], order: DESC }
-          filter: { tags: { eq: "Women"} }
+          filter: { tags: { eq: "Women" } }
         ) {
           edges {
             node {
@@ -102,18 +104,25 @@ const Slideshow = () => {
     autoplaySpeed: 3000,
     pauseOnFocus: true,
     adaptiveHeight: true,
-    variableWidth:true,
-    infinite:true,
+    variableWidth: true,
+    infinite: true,
     // centerMode:true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
-          slidesToShow:1,
-          variableWidth: false
-        }
-      }
-    ]
+          slidesToShow: 2,
+          variableWidth: false,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          variableWidth: false,
+        },
+      },
+    ],
   }
   return (
     <Wrapper>

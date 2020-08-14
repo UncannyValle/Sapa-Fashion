@@ -4,7 +4,37 @@ import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
 
 import StoreContext from '~/context/StoreContext'
+import styled from 'styled-components'
 
+const Button = styled.button`
+  background: #25ccde;
+  border-radius: 50px;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-weight: 800;
+  color: white;
+  transition: all 200ms ease-in-out;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem auto;
+  }
+  @media (max-width: 576px) {
+    margin: 0.5rem auto;
+  }
+`
+const Quantity = styled.input`
+  width: 50px;
+  text-align: center;
+  margin: 1rem 0;
+`
 const ProductForm = ({ product }) => {
   const {
     options,
@@ -75,6 +105,7 @@ const ProductForm = ({ product }) => {
   wouldn't want to use dropdown styled selector anyways - 
   at least if the have a sense for good design lol.
   */
+
   const checkDisabled = (name, value) => {
     const match = find(variants, {
       selectedOptions: [
@@ -97,11 +128,11 @@ const ProductForm = ({ product }) => {
 
   return (
     <>
-      <h3>{price}</h3>
+      <h3>Price: {price}</h3>
       {options.map(({ id, name, values }, index) => (
         <React.Fragment key={id}>
-          <label htmlFor={name}>{name} </label>
-          <select
+          {/* <label htmlFor={name}>{name} </label> */}
+          {/* <select
             name={name}
             key={id}
             onChange={event => handleOptionChange(index, event)}
@@ -115,12 +146,12 @@ const ProductForm = ({ product }) => {
                 {value}
               </option>
             ))}
-          </select>
+          </select> */}
           <br />
         </React.Fragment>
       ))}
-      <label htmlFor="quantity">Quantity </label>
-      <input
+      <label htmlFor="quantity">Quantity:  </label>
+      <Quantity
         type="number"
         id="quantity"
         name="quantity"
@@ -130,13 +161,13 @@ const ProductForm = ({ product }) => {
         value={quantity}
       />
       <br />
-      <button
+      <Button
         type="submit"
         disabled={!available || adding}
         onClick={handleAddToCart}
       >
         Add to Cart
-      </button>
+      </Button>
       {!available && <p>This Product is out of Stock!</p>}
     </>
   )

@@ -33,19 +33,31 @@ export const GlobalStyle = createGlobalStyle`
     `
 
 export const Img = styled(Image)`
-  width: 20rem;
-  height: 25rem;
-  margin: 0 auto 1.5rem;
+  width: 15rem;
+  height: 15rem;
+  margin: 0 2rem 1.5rem;
   padding: 2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: 0.2s ease-in-out;
   &:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
+  @media (max-width: 1024px) {
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    height: 17rem;
+    width: 17rem;
+  }
+  @media (max-width: 576px) {
+    margin: 0 auto;
+    height: 20rem;
+    width: 20rem;
+  }
 `
 
 export const Container = styled.div`
-  
   max-width: 1066px;
 `
 
@@ -69,12 +81,14 @@ export const GridRight = styled.div`
 `
 
 export const MainContent = styled.main`
-  top: 8rem;
+  margin-top: 9vh;
   /* width: 100%; */
   text-align: center;
-  position:relative;
+  position: relative;
+  min-height: 91vh;
 
-  @media (max-width: ${breakpoints.l}px) {
-    top: 6rem;
+  @media (max-width: ${breakpoints.xl}px) {
+    margin-top: 8vh;
+    min-height: 92vh;
   }
 `
