@@ -16,9 +16,9 @@ const Wrapper = styled.div`
     display: inline-block;
     color: black;
   }
-  @media (max-width: 1024px) {
-    display: none; 
-  }
+  /* @media (max-width: 1024px) {
+    display: none;
+  } */
 `
 const Carousel = styled(Slider)`
   padding-top: 1.5rem;
@@ -27,42 +27,51 @@ const Carousel = styled(Slider)`
 
   .links {
     transition: ease-in-out 0.2s all;
+   
   }
 
   .slick-list {
     margin: 0 25px;
   }
+  .slick-arrow{
+    background-color: black;
+    border-radius:50%;
+    width: 50px;
+    height: 50px;
+  }
+  .slick-slider{
 
+  }
   .slick-slide {
     box-sizing: border-box;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     text-align: center;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
   }
 
   .slick-next {
-    right: 0.5rem;
   }
   .slick-prev {
-    left: 0.5rem;
+    right: 1.8rem;
   }
   .slick-dots {
     bottom: 0;
     left: 0;
   }
-  
 `
 const Image = styled(Img)`
   border-radius: 50%;
-  min-width: 100%;
-  margin: 0 auto;
+  
 `
 
 const Slideshow = () => {
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
-        allShopifyProduct(sort: { fields: [createdAt], order: DESC }) {
+        allShopifyProduct(
+          sort: { fields: [createdAt], order: DESC }
+          filter: { tags: { eq: "Women"} }
+        ) {
           edges {
             node {
               id
@@ -87,12 +96,24 @@ const Slideshow = () => {
     `
   )
   const settings = {
-    dots: true,
     speed: 500,
     slidesToShow: 3,
     autoplay: true,
     autoplaySpeed: 3000,
-    pauseOnHover: true,
+    pauseOnFocus: true,
+    adaptiveHeight: true,
+    variableWidth:true,
+    infinite:true,
+    // centerMode:true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow:1,
+          variableWidth: false
+        }
+      }
+    ]
   }
   return (
     <Wrapper>
