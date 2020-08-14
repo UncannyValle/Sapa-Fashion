@@ -12,6 +12,12 @@ const MainContent = styled.div`
   margin: 100vh 0 0 0;
   background-color: white;
   padding: 3rem;
+  @media (max-width: 576px) {
+    padding: 0.5rem;
+    h2 {
+      font-size: 3rem;
+    }
+  }
 `
 const About = styled.div`
   h1 {
@@ -21,7 +27,7 @@ const About = styled.div`
   p {
     text-align: left;
     width: 60%;
-    margin: 0 auto;
+    margin: 1rem auto;
     font-size: 1.5rem;
     line-height: 2.25rem;
   }
@@ -29,6 +35,7 @@ const About = styled.div`
     p {
       width: 90%;
     }
+   
   }
 `
 

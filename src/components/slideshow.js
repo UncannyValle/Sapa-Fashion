@@ -120,6 +120,7 @@ const Slideshow = () => {
         settings: {
           slidesToShow: 1,
           variableWidth: false,
+          arrows: false,
         },
       },
     ],

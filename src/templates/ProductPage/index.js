@@ -10,11 +10,23 @@ import {
   GridLeft,
   GridRight,
 } from '~/utils/styles'
-import {
-  ProductTitle,
-  ProductDescription
-} from './styles'
+import { ProductTitle, ProductDescription } from './styles'
+import styled from 'styled-components'
 
+const Image = styled(Img)`
+  border: solid black 5px;
+  min-width: 30rem;
+  min-height: 40rem;
+  padding: 0;
+  img {
+    height: auto;
+    width: 100%;
+  }
+  @media (max-width: 576px) {
+    min-width: 20rem;
+    min-height: 25rem
+  }
+`
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
   return (
@@ -24,7 +36,7 @@ const ProductPage = ({ data }) => {
         <TwoColumnGrid>
           <GridLeft>
             {product.images.map(image => (
-              <Img
+              <Image
                 fluid={image.localFile.childImageSharp.fluid}
                 key={image.id}
                 alt={product.title}

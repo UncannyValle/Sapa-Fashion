@@ -52,8 +52,8 @@ export const Img = styled(Image)`
   }
   @media (max-width: 576px) {
     margin: 0 auto;
-    height: 20rem;
-    width: 20rem;
+    height: 19rem;
+    width: 19rem;
   }
 `
 
@@ -62,18 +62,20 @@ export const Container = styled.div`
 `
 
 export const TwoColumnGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2rem 1fr;
-  grid-template-rows: 1auto;
-  grid-template-areas: 'left . right';
+         display: grid;
+         grid-template-columns: 1fr 2rem 1fr;
+         grid-template-rows: 1auto;
+         grid-template-areas: 'left . right';
+         padding: 5rem 0;
 
-  @media (max-width: ${breakpoints.l}px) {
-    display: block;
-  }
-`
+         @media (max-width: ${breakpoints.l}px) {
+           display: block;
+         }
+       `
 
 export const GridLeft = styled.div`
   grid-area: left;
+  height: auto;
 `
 
 export const GridRight = styled.div`
@@ -81,14 +83,14 @@ export const GridRight = styled.div`
 `
 
 export const MainContent = styled.main`
-  margin-top: 9vh;
+  margin: 17vh auto 0;
   /* width: 100%; */
   text-align: center;
   position: relative;
-  min-height: 91vh;
+  min-height: 83vh;
 
-  @media (max-width: ${breakpoints.xl}px) {
-    margin-top: 8vh;
-    min-height: 92vh;
+  @media (max-width: ${breakpoints.l}px) {
+    margin-top: 15vh;
+    min-height: 85vh;
   }
 `

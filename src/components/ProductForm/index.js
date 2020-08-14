@@ -35,6 +35,9 @@ const Quantity = styled.input`
   text-align: center;
   margin: 1rem 0;
 `
+const Wrapper = styled.div`
+  /* padding-bottom: 2rem; */
+`
 const ProductForm = ({ product }) => {
   const {
     options,
@@ -76,24 +79,25 @@ const ProductForm = ({ product }) => {
     setQuantity(target.value)
   }
 
-  const handleOptionChange = (optionIndex, { target }) => {
-    const { value } = target
-    const currentOptions = [...variant.selectedOptions]
+  // const handleOptionChange = (optionIndex, { target }) => {
+  //   const { value } = target
+  //   const currentOptions = [...variant.selectedOptions]
 
-    currentOptions[optionIndex] = {
-      ...currentOptions[optionIndex],
-      value,
-    }
+  //   currentOptions[optionIndex] = {
+  //     ...currentOptions[optionIndex],
+  //     value,
+  //   }
 
-    const selectedVariant = find(variants, ({ selectedOptions }) =>
-      isEqual(currentOptions, selectedOptions)
-    )
+  //   const selectedVariant = find(variants, ({ selectedOptions }) =>
+  //     isEqual(currentOptions, selectedOptions)
+  //   )
 
-    setVariant({ ...selectedVariant })
-  }
+  //   setVariant({ ...selectedVariant })
+  // }
 
   const handleAddToCart = () => {
     addVariantToCart(productVariant.shopifyId, quantity)
+    alert(`Item added to cart`)
   }
 
   /* 
@@ -106,19 +110,19 @@ const ProductForm = ({ product }) => {
   at least if the have a sense for good design lol.
   */
 
-  const checkDisabled = (name, value) => {
-    const match = find(variants, {
-      selectedOptions: [
-        {
-          name: name,
-          value: value,
-        },
-      ],
-    })
-    if (match === undefined) return true
-    if (match.availableForSale === true) return false
-    return true
-  }
+  // const checkDisabled = (name, value) => {
+  //   const match = find(variants, {
+  //     selectedOptions: [
+  //       {
+  //         name: name,
+  //         value: value,
+  //       },
+  //     ],
+  //   })
+  //   if (match === undefined) return true
+  //   if (match.availableForSale === true) return false
+  //   return true
+  // }
 
   const price = Intl.NumberFormat(undefined, {
     currency: minVariantPrice.currencyCode,
@@ -127,7 +131,7 @@ const ProductForm = ({ product }) => {
   }).format(variant.price)
 
   return (
-    <>
+    <Wrapper>
       <h3>Price: {price}</h3>
       {options.map(({ id, name, values }, index) => (
         <React.Fragment key={id}>
@@ -150,7 +154,7 @@ const ProductForm = ({ product }) => {
           <br />
         </React.Fragment>
       ))}
-      <label htmlFor="quantity">Quantity:  </label>
+      <label htmlFor="quantity">Quantity: </label>
       <Quantity
         type="number"
         id="quantity"
@@ -169,7 +173,7 @@ const ProductForm = ({ product }) => {
         Add to Cart
       </Button>
       {!available && <p>This Product is out of Stock!</p>}
-    </>
+    </Wrapper>
   )
 }
 
