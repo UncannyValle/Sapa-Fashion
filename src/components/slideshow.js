@@ -16,6 +16,9 @@ const Wrapper = styled.div`
     display: inline-block;
     color: black;
   }
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `
 const Carousel = styled(Slider)`
   padding-top: 1.5rem;
@@ -33,8 +36,8 @@ const Carousel = styled(Slider)`
   .slick-slide {
     box-sizing: border-box;
     margin: 0 auto;
-    text-align:center;
-    padding:0 1rem;
+    text-align: center;
+    padding: 0 1rem;
   }
 
   .slick-next {
@@ -47,12 +50,12 @@ const Carousel = styled(Slider)`
     bottom: 0;
     left: 0;
   }
-
+  
 `
 const Image = styled(Img)`
   border-radius: 50%;
   min-width: 100%;
-  margin:0 auto;
+  margin: 0 auto;
 `
 
 const Slideshow = () => {

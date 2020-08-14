@@ -71,7 +71,6 @@ export const MainContent = styled.main`
   top: 7rem;
   /* width: 100%; */
   text-align: center;
-  min-height: 100vh;
   position:relative;
 
   @media (max-width: ${breakpoints.l}px) {

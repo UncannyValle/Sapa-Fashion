@@ -19,11 +19,16 @@ const About = styled.div`
     font-size: 3rem;
   }
   p {
-    text-align: justify;
+    text-align: left;
     width: 60%;
     margin: 0 auto;
     font-size: 1.5rem;
     line-height: 2.25rem;
+  }
+  @media (max-width: 768px) {
+    p {
+      width: 90%;
+    }
   }
 `
 
@@ -44,9 +49,7 @@ const IndexPage = () => (
           adipisci in. Assumenda ex distinctio amet porro?
         </p>
       </About>
-     
     </MainContent>
-    
   </>
 )
 
