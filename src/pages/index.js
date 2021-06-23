@@ -1,63 +1,29 @@
-import React from 'react'
-// import { Link } from 'gatsby'
-import styled from 'styled-components'
-import SEO from '~/components/seo'
-import Slideshow from '../components/slideshow'
-import { Splash } from '../components/pieces/splash'
+import * as React from "react"
+import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
-// const Title = styled.h1`
-//   text-align: center;
-// `
-const MainContent = styled.div`
-  margin: 100vh 0 0 0;
-  background-color: white;
-  padding: 3rem;
-  @media (max-width: 576px) {
-    padding: 0.5rem;
-    h2 {
-      font-size: 3rem;
-    }
-  }
-`
-const About = styled.div`
-  h1 {
-    text-align: center;
-    font-size: 3rem;
-  }
-  p {
-    text-align: left;
-    width: 60%;
-    margin: 1rem auto;
-    font-size: 1.5rem;
-    line-height: 2.25rem;
-  }
-  @media (max-width: 768px) {
-    p {
-      width: 90%;
-    }
-   
-  }
-`
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 const IndexPage = () => (
-  <>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Splash />
-    <MainContent>
-      <Slideshow />
-      <About>
-        <h1>About Us</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ipsum
-          repudiandae nulla totam quam, error earum, dignissimos architecto
-          soluta esse odio, rem necessitatibus non voluptatum libero eum. Iusto
-          voluptatem numquam incidunt laborum omnis, recusandae beatae possimus
-          repellat ad explicabo voluptatibus soluta aspernatur corporis,
-          adipisci in. Assumenda ex distinctio amet porro?
-        </p>
-      </About>
-    </MainContent>
-  </>
+  <Layout>
+    <Seo title="Home" />
+    <h1>Hi people</h1>
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <StaticImage
+      src="../images/gatsby-astronaut.png"
+      width={300}
+      quality={95}
+      formats={["AUTO", "WEBP", "AVIF"]}
+      alt="A Gatsby astronaut"
+      style={{ marginBottom: `1.45rem` }}
+    />
+    <p>
+      <Link to="/page-2/">Go to page 2</Link> <br />
+      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    </p>
+  </Layout>
 )
 
 export default IndexPage
