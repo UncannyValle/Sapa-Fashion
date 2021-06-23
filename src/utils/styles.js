@@ -1,5 +1,4 @@
 import Image from 'gatsby-image'
-import styled from '@emotion/styled'
 import { createGlobalStyle } from 'styled-components'
 
 export const breakpoints = {
